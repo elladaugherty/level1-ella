@@ -4,8 +4,9 @@ import org.jointheleague.graphical.robot.Robot;
 
 public class Houses {
 	static Robot robot1 = new Robot(); 
-	int height = 0;
-	
+	static int height = 0;
+    static String height2 = "";
+    static boolean flatRoof;
 public static void main(String[] args) {
 	
 	/*for(int i = 0; i < 10; i++)
@@ -13,37 +14,83 @@ public static void main(String[] args) {
 		drawHouse(100);
 	}
 	*/
-	drawHouse(50);
-	drawHouse(67);
-	drawHouse(20);
-	drawHouse(100);
-	drawHouse(80);
-	drawHouse(60);
-	drawHouse(108);
-	drawHouse(92);
-	drawHouse(40);
+	
+	robot1.moveTo(20, 590);
+	drawHouse("small", Color.pink);
+	drawHouse("medium", Color.blue);
+	drawHouse("small", Color.orange);
+	drawHouse("large", Color.CYAN);
+	drawHouse("medium", Color.yellow);
+	drawHouse("large", Color.MAGENTA);
+	drawHouse("small", Color.black);
+	drawHouse("medium", Color.red);
+	drawHouse("small", Color.lightGray);
 	
 }
 
-public static void drawHouse(int height)
+public static void drawHouse(String height2, Color color1)
 {
+	if(height2 == "small")
+{
+	height = 60;
+	flatRoof = false;
+}
+if(height2 == "medium")
+{
+	height = 120;
+	flatRoof = false;
+}
+if(height2 == "large")
+{
+	height = 250;
+	flatRoof = true;
+}
+    
 	robot1.setSpeed(100);
-	robot1.setPenColor(Color.black);
+	robot1.setPenColor(color1);
 	robot1.penDown();
 	robot1.move(height);
-	robot1.turn(90);
-	robot1.move(23);
-	robot1.turn(90);
+	if(flatRoof == true)
+	{
+		drawFlatRoof();
+	}
+	else if(flatRoof == false)
+	{
+		drawPointyRoof();
+	}
+		
 	robot1.move(height);
 	robot1.setPenColor(Color.GREEN);
 	robot1.turn(-90);
 	robot1.move(20);
 	robot1.turn(-90);
+
+	}
 	
+public static void drawPointyRoof()
+{
+	robot1.turn(45);
+	robot1.move(20);
+	robot1.turn(90);
+	robot1.move(20);
+	robot1.turn(45);
 	
 }
 
+public static void drawFlatRoof()
+{
+	robot1.turn(90);
+	robot1.move(23);
+	robot1.turn(90);
+	
 }
+}
+
+
+
+
+
+
 
 
 
