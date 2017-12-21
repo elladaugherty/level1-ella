@@ -15,7 +15,8 @@ import javax.swing.JPanel;
 public class DrumKit extends MouseAdapter {
 
     JLabel drumLabelWithImage;
-
+    JLabel drumLabelWithImage2;
+    JLabel drumLabelWithImage3;
     public static void main(String[] args) throws Exception {
    	 new DrumKit().getGoing();
     }
@@ -69,18 +70,45 @@ public class DrumKit extends MouseAdapter {
 
     		drumLabelWithImage.addMouseListener(this);
     		
+    		
+    		String drum2 = "drum2.jpg";
+    		drumLabelWithImage2 = createLabelImage(drum2);
+    		x.add(drumLabelWithImage2);
+    		one.pack();
+    		drumLabelWithImage2.addMouseListener(this);
+    		
+    		String drum3 = "drum3.jpg";
+    		drumLabelWithImage3 = createLabelImage(drum3);
+    		x.add(drumLabelWithImage3);
+    		one.pack();
+    		drumLabelWithImage3.addMouseListener(this);
+    		
     }
 
     public void mouseClicked(MouseEvent e) {
    	 // 14. When the mouse is clicked, print "mouse clicked"
+    	
+    	System.out.print("mouse clicked");
 
    	 JLabel drumClicked = (JLabel) e.getSource();
    	 // 15. Download a drum sound and drop it into your "default package". You can find it on freesound.org. To download it, log in as leagueofamazing/code4life.
    	 // 16. If they clicked on the drumImage...
-
+   	 
    		 // 17. ...use the playSound method to play a drum sound.
-
-   	 // 18. Add more images to make a drumkit. Remember to add a mouse listener to each one.
+   	 if(drumLabelWithImage == e.getSource())
+   	 {
+   	 	playSound("drumsound.wav");
+   	 }
+   	if(drumLabelWithImage2 == e.getSource())
+  	 {
+  	 	playSound("drumsound2.wav");
+  	 }
+   	if(drumLabelWithImage3 == e.getSource())
+  	 {
+  	 	playSound("drumsound3.wav");
+  	 }
+   	 // 18. Add more images to make a drumkit. Remember to add a mouse listener to each one
+   	 	
     }
 
     private JLabel createLabelImage(String fileName)

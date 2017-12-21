@@ -29,12 +29,12 @@ public class PhotoQuiz {
 	    {
 	    	JOptionPane.showMessageDialog(null, "INCORRECT");
 	    }
-	    
+	    quizWindow.removeAll();
 	    String puppy2 = "http://clv.h-cdn.co/assets/15/49/980x648/gettyimages-127022730.jpg";
 	    Component image2 = createImage(puppy2);
 	    quizWindow.add(image2);
 	    quizWindow.pack();
-	    
+	    quizWindow.setVisible(true);
 	    String question2 = JOptionPane.showInputDialog("What color hat is the dog wearing?");
 	    if(question2.equals("red"))
 	    		{
@@ -44,7 +44,7 @@ public class PhotoQuiz {
 	    		{
 	    			JOptionPane.showMessageDialog(null, "INCORRECT");
 	    		}
-	    
+	   
 	   }
 	
 	
